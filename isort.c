@@ -22,5 +22,6 @@ for(int j=0;j<SIZE-1;j++){
     printf("%d,",*(arr+j));
 }
 printf("%d",*(arr+SIZE-1));
-return 0;
+return 1;
+
 }
