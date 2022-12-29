@@ -38,28 +38,20 @@ int getword(char w[]){
     
     return count;
 }
-int similar (char *s, char *t){ 
-    if(strlen(s)+1!=strlen(t))
-    return 0;
-    int sim;
-    int index;
-    for(int i=0;i<strlen(t);i++){
-        index=0;
-        sim=1;
-        for (int j = 0; j < strlen(t) && sim==1; j++)
-        {
-            if(i==j) 
-                j++;
 
-           else  if(*(s+index)!=(*(t+j)))
-                sim=0;
-        index++;        
+int similar (char *s, char *t,int n){ 
+   int count=0;
+   int i=0;
+   int j;
+    for( j=0;j<strlen(t)&& i<strlen(s);j++){
+        if(s[i]==t[j]){
+            i++;
         }
-        if(sim==1)
-        return 1;
-        
+        else count++;
     }
+   if(count==n && j==strlen(t)) return 1;
     return 0;
+ 
 }
 int substring(char* str1, char* str2){
     int j;
@@ -95,7 +87,7 @@ void print_similar_words(char * str){
     while(count< MAXLINES*LINE){
         getword(word);
         count++;
-        if(similar(word, str)) printf ("%s\n", word);
+        if(similar(word, str,0)==1 || similar(word, str,1)==1) printf ("%s\n", word);
     }
 }
 
