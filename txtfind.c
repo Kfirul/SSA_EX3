@@ -38,8 +38,7 @@ int getword(char w[]){
     
     return count;
 }
-int similar (char *s, char *t){
-   
+int similar (char *s, char *t){ 
     if(strlen(s)+1!=strlen(t))
     return 0;
     int sim;
@@ -62,21 +61,73 @@ int similar (char *s, char *t){
     }
     return 0;
 }
-void print_lines(char * str){
+int substring(char* str1, char* str2)
+{
+	int len = Length(str1);
+	int len1 = Length(str2);
+	int i = 0;
+	int j = 0;
+	int counter = 0;
+	while (i < len)
+	{
+		while (str1[i] == str2[j]&&j<len1)
+		{
+			counter++;
+			j++;
+			i++;
+	    }
+		if (counter > 0)
+		{
+			if (counter == len1)
+			{
+				return 1;
+			}
+		}
+		j = 0;
+		i++;
+		counter = 0;
+	}
+	return 0;
 
+}
+void print_lines(char * str){
+    char text[MAXLINES] = {0};
+    int count=0;
+    while(count<MAXLINES){
+        getLine(text);
+        count++;
+        if(substring(text,str)){
+            printf("%s\n", text);
+        }
+        if(text[0]== '\0') break;
+    }
+}
+void print_similar_words(char * str){
+    char word[WORD]= {0};
+    int count =0;
+    while(count< MAXLINES*LINE){
+        getword(word);
+        count++;
+        if(similar(word, str)) printf ("%s\n", word);
+    }
 }
 
 
 int main(){
-// char w[WORD];
-// int num=getword(w);
-// printf("%d",num);
-// char s[LINE];
-// int numLines=getLine(s);
-// printf("%d",numLines);
-char w[]={'a', 'b', 'c', '\0'};
-char z[]={'a', 'x', 'b','c','c' ,'\0'};
-int sim=similar(w,z);
-printf("%d",sim);
-return 1;
+    char function = '\0';
+    char word [WORD]= {0};
+    scanf("%s %c", word, &function);
+    char emptyLine[LINE]= {0};
+    getLine(emptyLine);
+
+    if(function== 'a'){
+        char temp[LINE]={0};
+        getLine(temp);
+        print_lines(word);
+    }
+    if(function== 'b'){
+        char temp[LINE]={0};
+        getLine(temp);
+        print_similar_words(word);
+    }
 }
