@@ -109,15 +109,17 @@ int substring(char* str1, char* str2){
     return 0;
 }
 void print_lines(char * str){
-    char text[MAXLINES] = {0};
-    int count=0;
-    while(count<MAXLINES){
-        getLine(text);
+    char current[NUMLINES]= {0};
+    int count = 0;
+
+    while(NUMLINES > count ){
         count++;
-        if(substring(text,str)){
-            printf("%s\n", text);
+        getLine(current);
+        if (substring(current, str)){
+            printf("%s\n", current);
         }
-        if(text[0]== '\0') break;
+        if (current[0]== '\0')
+            break;
     }
 }
 void print_similar_words(char * str){
@@ -148,4 +150,5 @@ int main(){
         getLine(emptyLine);
         print_similar_words(word);
     }
+    return 0;
 }
