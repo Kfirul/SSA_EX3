@@ -40,19 +40,23 @@ int getword(char w[]){
 }
 
 int similar (char *s, char *t,int n){ 
-   int count=0;
-   int i=0;
-   int j;
-    for( j=0;j<strlen(t)&& i<strlen(s);j++){
-        if(s[i]==t[j]){
-            i++;
-        }
-        else count++;
+    int count = 0;
+    if (strlen(s)!= strlen(t)+n){
+        return 0;
     }
-   if(count==n && j==strlen(t)) return 1;
-    return 0;
- 
+    int j, i;
+    for (i = 0, j=0 ; i < strlen(s) && j < strlen(t) ; i++){
+        if (s[i] == t[j]){
+            count ++;
+            j++;
+        }
+    }
+    if (count == strlen(t))
+        return 1;
+
+    return 0;  
 }
+
 int substring(char* str1, char* str2){
     int j;
     for (int i = 0 ; i < strlen(str1)-strlen(str2)+1 ; i++){
