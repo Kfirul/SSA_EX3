@@ -31,18 +31,18 @@ void insertion_sort(int* arr , int len){
 }
 
 int main(){
-int arr[SIZE];
-int i=0;
-while(i<SIZE){
-    scanf("%d",(arr+i));
-    i++;
-}
-insertion_sort(arr,50);
+ int arr[SIZE];
+    
+    for (int i = 0; i < SIZE ;i++)
+    {
+       scanf("%d",&arr[i]);
+    }
+    insertion_sort(arr, SIZE);
 
-for(int j=0;j<SIZE-1;j++){
-    printf("%d,",*(arr+j));
-}
-printf("%d",*(arr+SIZE-1));
-printf("/n");
+    for (int i = 0 ; i < SIZE-1 ; i++){
+            printf("%d,", *(arr+i));
+        }
+printf("%d", *(arr+i));
+printf("\n");
 return 0;
 }

@@ -126,8 +126,8 @@ int main(){
         print_lines(word);
     }
     if(function== 'b'){
-        char temp[LINE]={0};
-        getLine(temp);
+        char emptyLine[LINE]={0};
+        getLine(emptyLine);
         print_similar_words(word);
     }
 }
