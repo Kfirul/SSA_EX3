@@ -61,34 +61,21 @@ int similar (char *s, char *t){
     }
     return 0;
 }
-int substring(char* str1, char* str2)
-{
-	int len = Length(str1);
-	int len1 = Length(str2);
-	int i = 0;
-	int j = 0;
-	int counter = 0;
-	while (i < len)
-	{
-		while (str1[i] == str2[j]&&j<len1)
-		{
-			counter++;
-			j++;
-			i++;
-	    }
-		if (counter > 0)
-		{
-			if (counter == len1)
-			{
-				return 1;
-			}
-		}
-		j = 0;
-		i++;
-		counter = 0;
-	}
-	return 0;
-
+int substring(char* str1, char* str2){
+    int j;
+    for (int i = 0 ; i < strlen(str1)-strlen(str2)+1 ; i++){
+        if (str1[i] == str2[0]){
+            for (j = 0 ; j < strlen(str2) ; j++){
+                if (str1[i+j]!= str2[j]){
+                    break;
+                }
+            }
+            if (j == strlen(str2)){
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
 void print_lines(char * str){
     char text[MAXLINES] = {0};
