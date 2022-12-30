@@ -5,11 +5,13 @@
 #define NUMLINES 250
 
 int getLine(char s[]){
+  char c= 0 ;
   for(int i=0; i<LINE; i++){
-    if(scanf("%c",&s[i])==EOF || s[i]=='\n' || s[i]== '\r' ){
+    if(scanf("%c",&c)==EOF || c=='\n' || c == '\r' ){
         s[i]== '\0';
         break;     
     }
+    else s[i]=c;
   }
   return strlen(s);
 }
