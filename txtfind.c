@@ -18,21 +18,20 @@ int getLine(char s[]){
 
 
 int getWord(char w[]){
-  int count=0;
-  for(int i=0; i<WORD; i++){
-    if(scanf("%c",&w[i])==EOF || c=='\n' || c == '\t' || c== ' ' || c == '\r'){
+  {
+    int count = 0;
+    for(int i =0; i < WORD; i++)
+    {
+        scanf("%c",&w[i]);
         count++;
-        w[i]== '\0';
-        break;     
+        if(w[i] == '\n' || w[i] == '\t' || w[i] == ' ' || w[i]=='\r')
+        {
+            w[i]='\0';
+            break;
+        }
     }
-    else count++;
-  }
-  return count;
+    return count; 
 }
-
-
-
-
 int substring(char* str1, char* str2){
     int j;
     for (int i = 0 ; i < strlen(str1)-strlen(str2)+1 ; i++){
