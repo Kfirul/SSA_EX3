@@ -53,6 +53,7 @@ int substring(char* str1, char* str2){
 
 int similar (char *s, char *t,int n){ 
    int count=0;
+   if(strlen(s)!=strlen(t)+n)  return 0
    int i=0;
    int j;
     for( j=0;j<strlen(s)&& i<strlen(t);j++){
