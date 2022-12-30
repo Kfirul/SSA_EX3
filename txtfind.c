@@ -5,19 +5,15 @@
 #define NUMLINES 250
 
 int getLine(char s[]){
- int count = 0;
- for(int i=0; i<LINE; i++){
-    scanf("%c", &(s[i]));
-    if (s[i]!= '\n' && s[i]!= '\r'){
-            count++;
-        }
-    else{
-        s[i] = '\0';
-        count++;
-        break;
-        }       
+  char c= 0 ;
+  for(int i=0; i<LINE; i++){
+    if(scanf("%c",&c)==EOF || c=='\n' || c == '\r' ){
+        s[i]== '\0';
+        break;     
     }
-    return count;
+    else s[i]=c;
+  }
+  return strlen(s);
 }
 
 
@@ -82,6 +78,8 @@ void print_similar_words(char * str){
             printf("%s\n", current);
     }
 }
+
+
 
 
 void printLine(char* str){
