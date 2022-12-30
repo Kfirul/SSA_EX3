@@ -30,19 +30,19 @@ int getLine(char s[]){
 }
 
 int getword(char w[]){
-    int i;
-    int count=0;
-    for(i=0;i<WORD;i++){
-        scanf("%c",&w[i]);
-
-        if(w[i] == '\n' || w[i] == '\t' || w[i] == ' ' || w[i]=='\r')
-        {
-            w[i]='\0';
+    int count = 0;
+    while (count<WORD){
+        scanf("%c", &(w[count]));
+        if (w[count]!= '\n' && w[count]!= '\t' && w[count]!= ' '&& w[count]!= '\r'){
+                    count++;
+        }
+        else{
+            w[count] = '\0';
+            count++;
             break;
         }
-        count++;
+            
     }
-    
     return count;
 }
 int similar (char *s, char *t,int n){ 
