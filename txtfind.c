@@ -18,15 +18,16 @@ int getLine(char s[]){
 
 
 int getWord(char w[]){
-  char c= 0 ;
+  int count=0;
   for(int i=0; i<WORD; i++){
     if(scanf("%c",&c)==EOF || c=='\n' || c == '\t' || c== ' ' || c == '\r'){
+        count++;
         w[i]== '\0';
         break;     
     }
-    else w[i]=c;
+    else count++;
   }
-  return strlen(w);
+  return count;
 }
 
 
