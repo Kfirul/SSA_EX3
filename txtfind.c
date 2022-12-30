@@ -20,7 +20,7 @@ int getLine(char s[]){
 int getWord(char w[]){
   int count=0;
   for(int i=0; i<WORD; i++){
-    if(scanf("%c",&c)==EOF || c=='\n' || c == '\t' || c== ' ' || c == '\r'){
+    if(scanf("%c",&w[i])==EOF || c=='\n' || c == '\t' || c== ' ' || c == '\r'){
         count++;
         w[i]== '\0';
         break;     
