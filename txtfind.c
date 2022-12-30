@@ -20,13 +20,13 @@ int getLine(char s[]){
 int getWord(char w[]){
   char c= 0 ;
   for(int i=0; i<WORD; i++){
-    if(scanf("%c",&c)==EOF || c=='\n' || c == '\t' || c== ' ' ){
-        s[i]== '\0';
+    if(scanf("%c",&c)==EOF || c=='\n' || c == '\t' || c== ' ' || c == '\r'){
+        w[i]== '\0';
         break;     
     }
-    else s[i]=c;
+    else w[i]=c;
   }
-  return strlen(s);
+  return strlen(w);
 }
 
 
