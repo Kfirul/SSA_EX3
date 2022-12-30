@@ -4,31 +4,14 @@
 #define WORD 30
 #define NUMLINES 250
 
-
-
-
 int getLine(char s[]){
-    int count = 0;
-    char temp='\0';
-    while (count<LINE ){
-        if (scanf("%c", &temp) == EOF){
-            return 0;
-        }
-        else{
-            s[count] = temp;
-        }
-
-        if(s[count] != '\n' && s[count] != '\r'){
-            count++;
-        }
-    
-        else{
-            s[count] = '\0';
-            count++;
-            break;
-    
-        }
-    }return count; 
+  for(int i=0; i<LINE; i++){
+    if(scanf("%c",&s[i])==EOF || s[i]=='\n' || s[i]== '\r' ){
+        s[i]== '\0';
+        break;     
+    }
+  }
+  return strlen(s);
 }
 
 
