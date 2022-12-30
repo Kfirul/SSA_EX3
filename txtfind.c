@@ -6,37 +6,44 @@
 #define MAXLINES 250
 
 int getLine(char s[]){
+    int count = 0;
+    char temp='\0';
+    while (count<LINE ){
+        if (scanf("%c", &temp) == EOF){
+            return 0;
+        }
+        else{
+            s[count] = temp;
+        }
+
+        if(s[count] != '\n' && s[count] != '\r'){
+            count++;
+        }
+    
+        else{
+            s[count] = '\0';
+            count++;
+            break;
+    
+        }
+    }return count; 
+}
+
+int getword(char w[]){
     int i;
     int count=0;
-    for(i=0;i<LINE;i++){
-        scanf("%c",&s[i]);
+    for(i=0;i<WORD;i++){
+        scanf("%c",&w[i]);
 
-        if(s[i] == '\n' ||  s[i]=='\r')
+        if(w[i] == '\n' || w[i] == '\t' || w[i] == ' ' || w[i]=='\r')
         {
-            s[i]='\0';
+            w[i]='\0';
             break;
         }
         count++;
     }
     
     return count;
-}
-
-int getword(char w[]){
-     int count = 0;
-    while (count<WORD){
-        scanf("%c", &(w[count]));
-        if (w[count]!= '\n' && w[count]!= '\t' && w[count]!= ' '&& w[count]!= '\r'){
-                    count++;
-        }
-        else{
-            w[count] = '\0';
-            count++;
-            break;
-        }
-            
-    }
-    return count
 }
 int similar (char *s, char *t,int n){ 
      int count = 0;
