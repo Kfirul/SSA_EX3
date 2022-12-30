@@ -101,20 +101,22 @@ void print_similar_words(char * str){
 
 
 int main(){
-    char function = '\0';
-    char word [WORD]= {0};
-    scanf("%s %c", word, &function);
-    char emptyLine[LINE]= {0};
-    getLine(emptyLine);
+     char word [WORD] ={0};
+    char choice='\0';
+    scanf("%s %c", word, &choice);
+    char empty[LINE]={0};
+    getLine(empty); 
 
-    if(function== 'a'){
-        char temp[LINE]={0};
+
+    if (choice == 'a'){
+        char temp[LINE]={0} ;
         getLine(temp);
-        print_lines(word);
+        printLine(word);
     }
-    if(function== 'b'){
-        char emptyLine[LINE]={0};
-        getLine(emptyLine);
+
+    if (choice == 'b'){ 
+        char empty[LINE]={0};
+        getLine(empty);  
         print_similar_words(word);
     }
     return 0;
