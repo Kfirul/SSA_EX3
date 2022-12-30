@@ -51,25 +51,18 @@ int substring(char* str1, char* str2){
 }
 
 
-int similar(char* s, char* t, int n){
-    int count = 0;
-    if (strlen(s)!= strlen(t)+n){
-        return 0;
+int similar (char *s, char *t,int n){ 
+   int count=0;
+   int i=0;
+   int j;
+    for( j=0;j<strlen(s)&& i<strlen(t);j++){
+        if(t[i]==s[j]){
+            i++;
+        }     else count++;
     }
-    int j, i;
-    for (i = 0, j=0 ; i < strlen(s) && j < strlen(t) ; i++){
-        if (s[i] == t[j]){
-            count ++;
-            j++;
-        }
-    }
-    if (count == strlen(t))
-        return 1;
-
-    return 0;  
+   if(count==n && j==strlen(s)&& i==strlen(t)) return 1;
+    return 0;
 }
-
-
 
 void print_similar_words(char * str){
     
