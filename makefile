@@ -5,10 +5,10 @@ AR = ar -rcs
 FLAGS = -Wall -g
 
 #Making O files
-isort.o: isort.c functions.h
+isort.o: isort.c 
 	$(CC) $(FLAGS) -c isort.c 
 
-txtfind.o: txtfind.c functions.h
+txtfind.o: txtfind.c 
 	$(CC) $(FLAGS) -c txtfind.c 
 
 #Making mains files
