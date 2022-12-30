@@ -31,6 +31,7 @@ int getWord(char w[]){
         }       
     }
     return count;
+}
 int substring(char* str1, char* str2){
     int j;
     for (int i = 0 ; i < strlen(str1)-strlen(str2)+1 ; i++){
