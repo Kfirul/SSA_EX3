@@ -5,14 +5,19 @@
 #define NUMLINES 250
 
 int getLine(char s[]){
-  int i=0;
-  int count=0;
-  while(scanf("%c",&s[i])!=EOF && s[i]!= '\n' &&s[i]!= '\r' && i < LINE){
-    i++;
-    count++;
-  } 
-s[i]='\0';
-return count;
+ int count = 0;
+ for(int i=0; i<LINE; i++){
+    scanf("%c", &(s[i]));
+    if (s[i]!= '\n' && s[i]!= '\r'){
+            count++;
+        }
+    else{
+        s[i] = '\0';
+        count++;
+        break;
+        }       
+    }
+    return count;
 }
 
 
