@@ -6,11 +6,13 @@
 
 int getLine(char s[]){
   int i=0;
+  int count=0;
   while(scanf("%c",&s[i])!=EOF && s[i]!= '\n' &&s[i]!= '\r' && i < LINE){
     i++;
+    count++;
   } 
 s[i]='\0';
-return i;
+return count;
 }
 
 
