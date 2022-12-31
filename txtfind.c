@@ -5,25 +5,29 @@
 #define NUMLINES 250
 
 
-    int getLine(char s[])
-{
-    int numOfChars = 0;
-    for (int i = 0; i < LINE; i++)
-    {
-        // submit the character in the char array
-        scanf("%c", &s[i]);
-        numOfChars++;
-        // end of line
-        if ((s[i] == '\n') || (s[i] == '\r'))
-        {
-            // declaration of end of a string
-            s[i] = '\0';
-            break;
+   int getLine(char s[]){
+    int count = 0;
+    char temp='\0';
+    while (count<LINE ){
+        if (scanf("%c", &temp) == EOF){
+            return 0;
         }
-    }
-    return numOfChars;
-}
+        else{
+            s[count] = temp;
+        }
 
+        if(s[count] != '\n' && s[count] != '\r'){
+            count++;
+        }
+    
+        else{
+            s[count] = '\0';
+            count++;
+            break;
+    
+        }
+    }return count; 
+}
 
 
 int getWord(char w[]){
