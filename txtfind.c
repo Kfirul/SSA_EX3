@@ -4,15 +4,26 @@
 #define WORD 30
 #define NUMLINES 250
 
-int getLine(int row) {
-    int length = 0;
-    int c;
-    while (((c = getchar()) != '\n') && (c != EOF) && (length < LINE - 1)) {
-        text[row][length++] = (char) c;
+
+    int getLine(char s[])
+{
+    int numOfChars = 0;
+    for (int i = 0; i < LINE; i++)
+    {
+        // submit the character in the char array
+        scanf("%c", &s[i]);
+        numOfChars++;
+        // end of line
+        if ((s[i] == '\n') || (s[i] == '\r'))
+        {
+            // declaration of end of a string
+            s[i] = '\0';
+            break;
+        }
     }
-        text[row][length] = '\0';
-    return length;
+    return numOfChars;
 }
+
 
 
 int getWord(char w[]){
