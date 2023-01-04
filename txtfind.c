@@ -91,18 +91,18 @@ void printLines(char * str){
 void printSimilarWords(char * str){
     char check[WORD]={0};
     int size;
-    for (int i = 0; i < MAXLINES; i++){
+    for (int i = 0; i < MAXLINES*LINE; i++){
         size=getWord(check);
-
         if(size==0)
         break;
+        
 
         if(similar(check,str)==1 ||strcmp(check,str)==0)
                 printf("%s\n", check);
 
-        
+    } 
     }
-}
+
 
 int main(){
     char word[WORD]={0};
